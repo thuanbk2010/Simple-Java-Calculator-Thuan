@@ -1,26 +1,22 @@
 package java.study.SimpleJavaCaculator;
 
 public class test {
-
+cccccc
+	ccccccccc
+	cccccc
+	cccccccccc
+	cccccc
+	c
 	
-	aaaaa
-	dd
-	dd
 	
-	d
-	d
-	d
-	d
-	aaaa
-	aaa
-	aaa
-	a
-dd
-dd
-dd
-d
-d
-d
+	
+	
+	
+	
+	
+	ccccc
+	ccccc
+	
 
 	
 }
