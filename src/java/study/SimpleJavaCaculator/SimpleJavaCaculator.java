@@ -1,12 +1,11 @@
 package java.study.SimpleJavaCaculator;
 
-import static java.lang.Math.pow ;
-import static java.lang.Math.log ;
 import static java.lang.Math.log10 ;
+import static java.lang.Math.pow ;
 
 public class SimpleJavaCaculator {
 	public enum BiOperatorModes {
-		normal, add, minus, multiple, divide, xpowofy
+		normal, add, minus, multiply, divide, xpowofy
 	}
 	public enum MonoOperatorMode {
 		square, squareRoot, oneDeviceBy, cos, sin, tan, log, rate	
@@ -25,7 +24,7 @@ public class SimpleJavaCaculator {
 		if (mode == BiOperatorModes.minus) {
 			return num1 - num2 ;
 		}
-		if (mode == BiOperatorModes.multiple) {
+		if (mode == BiOperatorModes.multiply) {
 			return num1 * num2 ;
 		}
 		if (mode == BiOperatorModes.divide) {
@@ -37,6 +36,25 @@ public class SimpleJavaCaculator {
 		
 		// never reach
 		throw new Error();		
+	}
+	
+	public Double calculateBi (BiOperatorModes newMode , Double num) {
+		if (mode == BiOperatorModes.normal) {
+			num2 = num ;
+			num1 = 0.0 ;
+			mode = newMode ;
+			return Double.NaN ;
+		}
+		else {
+			mode = newMode ;
+			num1 = calculateBiImpl() ;
+			num2 = num ;
+			return num1 ;
+		}
+	}
+	
+	public Double calculateEqual (Double num) {
+		return calculateBi(BiOperatorModes.normal, num) ;
 	}
 	
 	public Double reset() {
@@ -51,19 +69,19 @@ public class SimpleJavaCaculator {
 			return  num * num ;
 		}
 		if (newMode == MonoOperatorMode.squareRoot) {
-			return sqrt (num) ;
+			return Math.sqrt(num) ;
 		}
 		if (newMode == MonoOperatorMode.oneDeviceBy) {
 			return 1/num ;
 		}
 		if (newMode == MonoOperatorMode.cos) {
-			return cos(num) ;
+			return Math.cos(num) ;
 		}
 		if (newMode == MonoOperatorMode.sin) {
-			return sin(num) ;
+			return Math.sin(num) ;
 		}
 		if (newMode == MonoOperatorMode.tan) {
-			return tan(num) ;
+			return Math.tan(num) ;
 		}
 		if (newMode == MonoOperatorMode.log) {
 			return log10(num) ;
